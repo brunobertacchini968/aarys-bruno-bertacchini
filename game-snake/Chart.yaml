@@ -1,0 +1,6 @@
+apiVersion: v2
+name: game-snake
+description: Helm Chart para desplegar el juego Snake
+type: application
+version: 2.0.0
+appVersion: "2.0"

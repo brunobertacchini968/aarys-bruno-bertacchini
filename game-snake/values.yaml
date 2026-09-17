@@ -1,0 +1,16 @@
+replicaCount: 2
+
+image:
+  repository: ivan1993spb/snake-server
+  tag: "4.12.0-rc.4"
+  pullPolicy: IfNotPresent
+
+containerPort: 8080
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+args:
+  - "--enable-web"

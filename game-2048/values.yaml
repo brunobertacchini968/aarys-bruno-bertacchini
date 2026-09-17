@@ -1,0 +1,13 @@
+replicaCount: 3
+
+image:
+  repository: quchaonet/2048
+  tag: "arm64"
+  pullPolicy: IfNotPresent
+
+containerPort: 8080
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
