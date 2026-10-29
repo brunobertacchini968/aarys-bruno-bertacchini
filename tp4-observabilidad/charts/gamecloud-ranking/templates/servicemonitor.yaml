@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: gamecloud-ranking
+  namespace: gamecloud
+  labels:
+    release: kube-prometheus-stack
+spec:
+  namespaceSelector:
+    matchNames:
+      - gamecloud
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: gamecloud-ranking
+      app.kubernetes.io/instance: gamecloud-ranking
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s

@@ -1,0 +1,41 @@
+alertmanager:
+  enabled: false
+
+kubeControllerManager:
+  enabled: false
+
+kubeEtcd:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
+
+grafana:
+  enabled: true
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  additionalDataSources:
+    - name: Loki
+      type: loki
+      access: proxy
+      url: http://loki.observabilidad.svc.cluster.local:3100
+      isDefault: false
+
+prometheus:
+  enabled: true
+  prometheusSpec:
+    replicas: 1
+    retention: 2d
+    resources:
+      requests:
+        cpu: 200m
+        memory: 384Mi
+      limits:
+        cpu: 700m
+        memory: 768Mi
+
